@@ -10,6 +10,8 @@ import { MatInputModule } from '@angular/material/input';
 export class MoviesComponent implements OnInit {
   title: string;
   movies: any[];
+  details: any[];
+  idMovie: any[];
 
   getMovie(title: string) {
     console.log(this.getMovie);
@@ -22,6 +24,15 @@ export class MoviesComponent implements OnInit {
 
   constructor(private moviesService: MoviesService){
   }
+
+  /*info(id: string) {
+    this.details = data.Search.imdbID;
+    this.moviesService.getDetailsById(id).subscribe(
+      (data:any) => {
+        console.log(this.details);
+      }
+    )
+  }*/
 
   ngOnInit() {
   }

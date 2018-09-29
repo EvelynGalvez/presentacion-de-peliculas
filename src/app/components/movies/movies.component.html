@@ -6,9 +6,12 @@
 
 <ul class="list-group">
   <li class="list-group-item moviesList" *ngFor="let movie of movies">
-    <img src="{{movie.Poster}}" class="col-lg-4 rounded float-left imgMovie" alt="...">
-    <div class=col-lg-8>
+    <img src="{{movie.Poster}}" class="col-lg-4 rounded float-left imgMovie" alt="..." (click)="info()">
+    <div class=col-lg-6>
       {{movie.Title}}
     </div>
+    <input class="2" onlyread value={{movie.imdbID}}>
   </li>
+  <!-- <li class="list-group-item moviesDetail" *ngFor="let detail o details">
+  </li> -->
 </ul>

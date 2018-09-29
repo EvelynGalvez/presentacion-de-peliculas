@@ -18,6 +18,15 @@ export class MoviesService {
     ))
   }
 
+  getDetailsById(id: string) {
+    const url = 'http://www.omdbapi.com/?i='+ id +this.apiKey;
+    return this.http.get(url).pipe(map(
+      (response: Response) => {
+        return response.json();
+      }
+    ))
+  }
+
   constructor(private http: Http ) { }
 
 }
