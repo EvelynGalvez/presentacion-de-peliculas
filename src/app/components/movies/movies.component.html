@@ -3,3 +3,12 @@
     <input matInput value="" [(ngModel)]="title" class="form-control" [ngModelOptions]="{standalone: true}">
     <button class="btn btn-danger" (click)="getMovie(title)">Search</button>
 </form>
+
+<ul class="list-group">
+  <li class="list-group-item moviesList" *ngFor="let movie of movies">
+    <img src="{{movie.Poster}}" class="col-lg-4 rounded float-left imgMovie" alt="...">
+    <div class=col-lg-8>
+      {{movie.Title}}
+    </div>
+  </li>
+</ul>

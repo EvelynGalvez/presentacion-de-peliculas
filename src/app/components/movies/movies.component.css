@@ -13,3 +13,12 @@
   margin-top: 1%;
 }
 
+.moviesList {
+  margin-top: 2%;
+  height: 120px;
+}
+
+.imgMovie {
+  width: auto;
+  height: 100%;
+}

@@ -9,18 +9,18 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class MoviesComponent implements OnInit {
   title: string;
-  result: object;
-  
+  movies: any[];
+
   getMovie(title: string) {
     console.log(this.getMovie);
-    this.moviesService.getMovieByTitle(title)
-    .subscribe( data => console.log(data))
+    this.moviesService.getMovieByTitle(title).subscribe(
+      (data: any) => {
+        this.movies = data.Search;
+        console.log(this.movies);
+      })
   }
 
   constructor(private moviesService: MoviesService){
-
-    /*this._ms.getMovies()
-      .subscribe( data => console.log(data))*/
   }
 
   ngOnInit() {

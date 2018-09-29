@@ -11,8 +11,11 @@ export class MoviesService {
 
   getMovieByTitle(title: string) {
     const url = 'http://www.omdbapi.com/?s='+ title +this.apiKey;
-    return this.http.get(url)
-    .pipe(map( res => res.json()))
+    return this.http.get(url).pipe(map(
+      (response: Response) => {
+        return response.json();
+      }
+    ))
   }
 
   constructor(private http: Http ) { }
