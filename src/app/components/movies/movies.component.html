@@ -1,17 +1,15 @@
 <form class="example-form">
     <label>Ingresa película</label>
-    <input matInput value="" [(ngModel)]="title" class="form-control" [ngModelOptions]="{standalone: true}">
+    <input matInput value="" [(ngModel)]="title" class="form-control" [ngModelOptions]="{standalone: true}" (keyup.enter)="onEnter">
     <button class="btn btn-danger" (click)="getMovie(title)">Search</button>
 </form>
 
 <ul class="list-group">
   <li class="list-group-item moviesList" *ngFor="let movie of movies">
-    <img src="{{movie.Poster}}" class="col-lg-4 rounded float-left imgMovie" alt="..." (click)="info()">
-    <div class=col-lg-6>
-      {{movie.Title}}
+    <img src="{{movie.Poster}}" class="col-lg-4 rounded float-left imgMovie" alt="..." (click)="showDetails()">
+    <div class="col-lg-8 dataMovie">
+      <p>Título: {{movie.Title}}</p>
+      <p>Año: {{movie.Year}}</p>
     </div>
-    <input class="2" onlyread value={{movie.imdbID}}>
   </li>
-  <!-- <li class="list-group-item moviesDetail" *ngFor="let detail o details">
-  </li> -->
 </ul>

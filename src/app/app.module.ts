@@ -30,7 +30,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     MoviesComponent,
-    ToolbarComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
