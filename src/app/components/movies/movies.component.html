@@ -1,6 +1,5 @@
-<div class="container-fluid">
-  <div class="row containerMovie">
-      <img type="button" src="../../../assets/img/up.jpg" class="rounded float-left imgMovies" alt="...">
-      <h1 class="movieTitle">Up</h1>
-  </div>
-</div>
+<form class="example-form">
+    <label>Ingresa película</label>
+    <input matInput value="" [(ngModel)]="title" class="form-control" [ngModelOptions]="{standalone: true}">
+    <button class="btn btn-danger" (click)="getMovie(title)">Search</button>
+</form>

@@ -9,11 +9,28 @@ import { MoviesComponent } from './components/movies/movies.component';
 
 import { HttpModule, JsonpModule } from '@angular/http';
 
+import { MatInputModule } from '@angular/material/input';
+import { RouterModule, Routes } from '@angular/router';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { FormsModule } from '@angular/forms';
+import { MoviesService } from './services/movies.service';
 
+
+const appRoutes: Routes = [
+  {
+    path: ' ',
+    component: ToolbarComponent
+  },
+  {
+    path: 'movies',
+    component: MoviesComponent
+  }
+]
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,9 +38,12 @@ import { HttpModule, JsonpModule } from '@angular/http';
     MatToolbarModule,
     MatButtonModule,
     HttpModule,
-    JsonpModule
+    JsonpModule,
+    MatInputModule,
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
-  providers: [],
+  providers: [MoviesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

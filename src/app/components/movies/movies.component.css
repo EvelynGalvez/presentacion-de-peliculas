@@ -1,25 +1,15 @@
-
-.imgMovies {
-width: 15%;
-height: 15%;
-margin-top: 1%;
-margin-left: 1%;
-margin-bottom: 1%;
+.example-form {
+  min-width: 150px;
+  max-width: 600px;
+  width: 100%;
+  margin-left: 2%;
 }
 
-.containerMovie {
-  background-color: #FAFAFA;
+.example-full-width {
+  width: 100%;
 }
 
-.movieTitle {
-  margin-left: 20%;
-  margin-top: 3%;
+.btn-danger {
+  margin-top: 1%;
 }
 
-
-@media (max-width: 700px) {
-  .imgMovies {
-    width: 25%;
-    height: 25%;
-  }
-}
