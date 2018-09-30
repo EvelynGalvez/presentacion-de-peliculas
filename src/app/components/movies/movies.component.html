@@ -10,10 +10,7 @@
     <div class="col-lg-8 dataMovie">
       <p>Título: {{movie.Title}}</p>
       <p>Año: {{movie.Year}}</p>
-      <button class="btn btn-danger btnVer text-white" (click)="getDetails(movie.Title)" (click)="hidden()">Ver más</button>
-      <div id="hidden">
-        <p>Awards: </p>
-      </div>
+      <button class="btn btn-danger btnVer text-white" (click)="getDetails(movie.Title)">Ver más</button>
     </div>
   </li>
 </ul>

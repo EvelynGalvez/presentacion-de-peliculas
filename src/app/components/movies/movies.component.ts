@@ -3,6 +3,7 @@ import { MoviesService } from '../../services/movies.service';
 import { MatInputModule } from '@angular/material/input';
 import { forEach } from '@angular/router/src/utils/collection';
 import { element } from '@angular/core/src/render3/instructions';
+import { Observable, ObjectUnsubscribedError } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
@@ -13,48 +14,21 @@ export class MoviesComponent implements OnInit {
   buscar: string = '';
   title: any;
   movies: any[];
-  details: object;
+  details$:Observable<any>;
   titles: any[] = [];
+  runtime: any;
+  gendre: any[];
+  director: any;
+  actors: any;
+  awards: any;
 
-  /* Esta funciín debe recibir como parámetro lo que en html aparece como {{movie.Title}}*/
+
 
   constructor(public moviesService: MoviesService){
   }
 
   ngOnInit() {
   }
-
-  hidden() {
-    console.log('btn funciona');
-  }
-
-/*  getMovie() {
-    if (this.buscar.length == 0) {
-      return;
-    }
-    this.moviesService.getMovieByTitle(this.buscar)
-      .subscribe()
-  }*/
-
-  /*getMovie() {
-    this.moviesService.getMovieByTitle(this.buscar)
-    .subscribe(
-      (data: any) => {
-        this.movies = data.Search;
-        for(let i = 0; i < 10; i++ ) {
-          this.titles = this.movies[i].Title;
-          console.log(this.titles);
-          this.moviesService.getDetailsById(this.titles)
-          .subscribe(
-            (data: any) => {
-              this.details = data;
-              console.log(this.details);
-            }
-          )
-        }
-      })
-  }*/
-
 
   getMovie() {
     this.moviesService.getMovieByTitle(this.buscar)
@@ -63,7 +37,7 @@ export class MoviesComponent implements OnInit {
         this.movies = data.Search;
         let dataMovies = this.movies;
         console.log(dataMovies);
-        this.getTitles(dataMovies);
+        //this.getTitles(dataMovies);
         return dataMovies;
       })
   }
@@ -82,8 +56,20 @@ export class MoviesComponent implements OnInit {
     this.moviesService.getDetailsById(dataTitles)
     .subscribe(
       (data: any) => {
-        this.details = data;
-        console.log(this.details);
+        this.details$ = data;
+        let detailsArray = Object.entries(this.details$);
+        this.title = detailsArray[0];
+        this.runtime = detailsArray[4];
+        this.gendre = detailsArray[5];
+        this.director = detailsArray[6];
+        this.actors = detailsArray[8];
+        this.awards = detailsArray[12];
+        console.log('Titulo: ' + this.title[1]);
+        console.log('Duración: ' + this.runtime[1]);
+        console.log('Género: ' + this.gendre[1]);
+        console.log('Director: ' + this.director[1]);
+        console.log('Reparto: ' + this.actors[1]);
+        console.log('Premios: ' + this.awards[1]);
       }
     )
   }
