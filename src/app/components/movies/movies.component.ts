@@ -11,26 +11,21 @@ import { element } from '@angular/core/src/render3/instructions';
 })
 export class MoviesComponent implements OnInit {
   buscar: string = '';
-  title: string;
+  title: any;
   movies: any[];
   details: object;
-  titles: string = '';
+  titles: any[] = [];
 
   /* Esta funciín debe recibir como parámetro lo que en html aparece como {{movie.Title}}*/
-  getDetails(title:string) {
-    console.log(this.getDetails);
-    this.moviesService.getDetailsById(title).subscribe(
-      (data: any) => {
-        this.details = data;
-        console.log(this.details);
-      }
-    )
-  }
 
   constructor(public moviesService: MoviesService){
   }
 
   ngOnInit() {
+  }
+
+  hidden() {
+    console.log('btn funciona');
   }
 
 /*  getMovie() {
@@ -41,7 +36,7 @@ export class MoviesComponent implements OnInit {
       .subscribe()
   }*/
 
-  getMovie() {
+  /*getMovie() {
     this.moviesService.getMovieByTitle(this.buscar)
     .subscribe(
       (data: any) => {
@@ -58,6 +53,38 @@ export class MoviesComponent implements OnInit {
           )
         }
       })
+  }*/
+
+
+  getMovie() {
+    this.moviesService.getMovieByTitle(this.buscar)
+    .subscribe(
+      (data: any) => {
+        this.movies = data.Search;
+        let dataMovies = this.movies;
+        console.log(dataMovies);
+        this.getTitles(dataMovies);
+        return dataMovies;
+      })
   }
 
+  getTitles(dataMovies) {
+    let JsdataMovies = JSON.stringify(dataMovies);
+    let jpdataMovies = JSON.parse(JsdataMovies);
+    for (let i = 0; i < 10; i++) {
+      this.titles = jpdataMovies[i].Title;
+      let dataTitles = this.titles;
+      this.getDetails(dataTitles);
+    }
+  }
+
+  getDetails(dataTitles){
+    this.moviesService.getDetailsById(dataTitles)
+    .subscribe(
+      (data: any) => {
+        this.details = data;
+        console.log(this.details);
+      }
+    )
+  }
 }

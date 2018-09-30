@@ -13,9 +13,13 @@
   margin-top: 1%;
 }
 
+.btnVer {
+  margin-top: 0%;
+}
+
 .moviesList {
   margin-top: 2%;
-  height: 120px;
+  height: 140px;
   padding-left: 0px;
   padding-right: 0px;
   position: relative;
@@ -28,4 +32,9 @@
 
 .dataMovie {
   margin-left: 15%;
+}
+
+#hidden {
+  background: pink;
+  display: none;
 }
