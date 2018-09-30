@@ -10,9 +10,11 @@ import { element } from '@angular/core/src/render3/instructions';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
+  buscar: string = '';
   title: string;
   movies: any[];
   details: object;
+  titles: string = '';
 
   /* Esta funciín debe recibir como parámetro lo que en html aparece como {{movie.Title}}*/
   getDetails(title:string) {
@@ -25,23 +27,37 @@ export class MoviesComponent implements OnInit {
     )
   }
 
-  getMovie(title: string) {
-    console.log(this.getMovie);
-    this.moviesService.getMovieByTitle(title).subscribe(
-      (data: any) => {
-        this.movies = data.Search;
-        //console.log(this.movies[0].Title);
-        this.movies.forEach(function(element){
-          console.log(element.Title)  // <-- Esto debe ser pasado como parámetro a función getDetails
-          return element.Title
-        })
-      })
-  }
-
-  constructor(private moviesService: MoviesService){
+  constructor(public moviesService: MoviesService){
   }
 
   ngOnInit() {
+  }
+
+/*  getMovie() {
+    if (this.buscar.length == 0) {
+      return;
+    }
+    this.moviesService.getMovieByTitle(this.buscar)
+      .subscribe()
+  }*/
+
+  getMovie() {
+    this.moviesService.getMovieByTitle(this.buscar)
+    .subscribe(
+      (data: any) => {
+        this.movies = data.Search;
+        for(let i = 0; i < 10; i++ ) {
+          this.titles = this.movies[i].Title;
+          console.log(this.titles);
+          this.moviesService.getDetailsById(this.titles)
+          .subscribe(
+            (data: any) => {
+              this.details = data;
+              console.log(this.details);
+            }
+          )
+        }
+      })
   }
 
 }

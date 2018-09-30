@@ -1,7 +1,7 @@
 <form class="example-form">
     <label>Ingresa película</label>
-    <input matInput value="" [(ngModel)]="title" class="form-control" [ngModelOptions]="{standalone: true}" (keyup.enter)="onEnter">
-    <button class="btn btn-danger" (click)="getMovie(title)">Search</button>
+    <input matInput name="buscar" value="" [(ngModel)]="buscar" class="form-control" (keyup.enter)="onEnter">
+    <button class="btn btn-danger" (click)="getMovie()">Search</button>
 </form>
 
 <ul class="list-group">
