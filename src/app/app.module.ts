@@ -24,7 +24,12 @@ const appRoutes: Routes = [
   {
     path: 'movies',
     component: MoviesComponent
+  },
+  {
+    path: 'movies/:texto',
+    component: MoviesComponent
   }
+
 ]
 @NgModule({
   declarations: [
