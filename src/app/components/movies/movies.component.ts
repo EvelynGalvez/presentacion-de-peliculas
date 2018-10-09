@@ -42,13 +42,16 @@ export class MoviesComponent implements OnInit {
   constructor(public moviesService: MoviesService, private router: Router, public route: ActivatedRoute){
   }
 
-  ngOnInit() {
-    $(document).ready(function(){ 
-      $('#alternar-respuesta-ej1').on('click',function(){
-         $('#respuesta-ej1').toggle('slow');
+  ngOnInit() { 
+    $(document).ready(function(){
+      $("#flip").click(function(){
+        alert("jQuery esta funcionando !!");
       });
-   });
+  });
   }
+
+  
+
 
   getMovie() {
     this.moviesService.getMovieByTitle(this.buscar)
@@ -56,7 +59,6 @@ export class MoviesComponent implements OnInit {
       (data: any) => {
         this.movies = data.Search;
         let dataMovies = this.movies;
-        //this.getTitles(dataMovies);
         return dataMovies;
       })
   }
@@ -73,14 +75,11 @@ export class MoviesComponent implements OnInit {
   }
 
   getDetails(dataTitles){
-    //console.log(dataTitles);
     this.moviesService.getDetailsById(dataTitles)
     .subscribe(
       (data: any) => {
         this.details$ = data;
         let detailsArray = Object.entries(this.details$);
-        //let arraicito = JSON.stringify(detailsArray);
-        //console.log(JSON.parse(arraicito));
         console.log(detailsArray);
         this.title = detailsArray[0];
         this.runtime = detailsArray[4];
@@ -98,12 +97,6 @@ export class MoviesComponent implements OnInit {
         this.reparto = this.actors[1];
         this.premios = this.awards[1];
         this.portada = this.poster[1];
-       console.log('portada: ' + this.poster[1]);
-        console.log('Duración: ' + this.runtime[1]);
-        console.log('Género: ' + this.gendre[1]);
-        console.log('Director: ' + this.director[1]);
-        console.log('Reparto: ' + this.actors[1]);
-        console.log('Premios: ' + this.awards[1]);
       }
     )
   }

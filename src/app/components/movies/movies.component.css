@@ -27,6 +27,18 @@
 
 .movieDetails {
   height: 400px;
+  display:block;
+  position: relative;
+  z-index: 10;
+}
+
+.dropdown {
+  width: 100%;
+}
+
+.dropdown-menu {
+  width: 100%;
+  z-index: 100;
 }
 
 .imgMovie {
@@ -37,16 +49,19 @@
 .dataMovie {
   margin-left: 0%;
   padding: 0px;
+  position: relative;
+  z-index: -2;
 }
 
 .detailsContainer {
   background-color: #FAFAFA;
   border: 1px solid rgb(177, 177, 177);
-  z-index: 100;
+  z-index: 1000;
   padding-left: 0px;
   width: 100%;
   margin-left: 0px;
   margin-right: 0px;
   padding-right: 0px;
   margin-top: 0.5%;
+  position: relative;
 }
