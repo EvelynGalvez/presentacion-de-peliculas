@@ -7,18 +7,22 @@
 <ul class="list-group">
   <li class="list-group-item moviesList" *ngFor="let movie of movies">
     <img src="{{movie.Poster}}" class="col-lg-4 rounded float-left imgMovie" alt="...">
-    <div class="col-lg-8 dataMovie">
+    <div class="col-lg-12 dataMovie">
       <p>Título: {{movie.Title}}</p>
       <p>Año: {{movie.Year}}</p>
-      <button class="btn btn-danger btnVer text-white" (click)="getDetails(movie.Title)">Ver más</button>
-      <div class="detailsContainer" *ngIf="(movie.imdbID) == (this.id)">
-        <p>Género: {{this.genero}}</p>
-        <p>Duración: {{this.duracion}}</p>
-        <p>Reparto: {{this.reparto}}</p>
-        <p>Director: {{this.nameDirector}}</p>
-        <p>Premios: {{this.premios}}</p>
+      <button id="alternar-respuesta-ej1" class="btn btn-danger btnVer text-white" (click)="getDetails(movie.Title)">Ver más</button>
+      <div id="respuesta-ej1" class="detailsContainer col-lg-12" *ngIf="(movie.imdbID) == (this.id)">
+        <li class="list-group-item movieDetails">
+          <img src="{{this.portada}}" class="col-lg-4 rounded float-left imgMovie">
+          <div class="col-lg-12 dataMovie">
+              <p>Género: {{this.genero}}</p>
+              <p>Duración: {{this.duracion}}</p>
+              <p>Reparto: {{this.reparto}}</p>
+              <p>Director: {{this.nameDirector}}</p>
+              <p>Premios: {{this.premios}}</p>
+          </div>
+        </li>
       </div>
-
     </div>
   </li>
 </ul>

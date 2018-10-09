@@ -6,6 +6,8 @@ import { element } from '@angular/core/src/render3/instructions';
 import { Observable, ObjectUnsubscribedError } from 'rxjs';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+
+declare var $: any;
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
@@ -22,6 +24,7 @@ export class MoviesComponent implements OnInit {
   director: any;
   actors: any;
   awards: any;
+  poster: any;
   titulo: any;
   duracion: any;
   imdbID: any;
@@ -31,6 +34,8 @@ export class MoviesComponent implements OnInit {
   genero: any;
   premios: any;
   type: any;
+  portada: any;
+ 
 
 
 
@@ -38,6 +43,11 @@ export class MoviesComponent implements OnInit {
   }
 
   ngOnInit() {
+    $(document).ready(function(){ 
+      $('#alternar-respuesta-ej1').on('click',function(){
+         $('#respuesta-ej1').toggle('slow');
+      });
+   });
   }
 
   getMovie() {
@@ -69,6 +79,8 @@ export class MoviesComponent implements OnInit {
       (data: any) => {
         this.details$ = data;
         let detailsArray = Object.entries(this.details$);
+        //let arraicito = JSON.stringify(detailsArray);
+        //console.log(JSON.parse(arraicito));
         console.log(detailsArray);
         this.title = detailsArray[0];
         this.runtime = detailsArray[4];
@@ -76,6 +88,7 @@ export class MoviesComponent implements OnInit {
         this.director = detailsArray[6];
         this.actors = detailsArray[8];
         this.awards = detailsArray[12];
+        this.poster = detailsArray[13];
         this.imdbID = detailsArray[18];
         this.id = this.imdbID[1];
         this.titulo = this.title[1];
@@ -84,6 +97,8 @@ export class MoviesComponent implements OnInit {
         this.nameDirector = this.director[1];
         this.reparto = this.actors[1];
         this.premios = this.awards[1];
+        this.portada = this.poster[1];
+       console.log('portada: ' + this.poster[1]);
         console.log('Duración: ' + this.runtime[1]);
         console.log('Género: ' + this.gendre[1]);
         console.log('Director: ' + this.director[1]);
