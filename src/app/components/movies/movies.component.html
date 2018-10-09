@@ -14,7 +14,7 @@
           <button class="btn btn-secondary dropdown-toggle btn btn-danger btnVer text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="getDetails(movie.Title)">
             Ver más
           </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <div class="animated bounceInDown dropdown-menu" aria-labelledby="dropdownMenuButton">
             <div id="panel" class="detailsContainer col-lg-12" *ngIf="(movie.imdbID) == (this.id)">
               <li class="list-group-item movieDetails">
                 <img src="{{this.portada}}" class="col-lg-4 rounded float-left imgMovie">
