@@ -5,7 +5,7 @@
 </form>
 
 <ul class="list-group">
-  <li id="movies" class="animated fadeInLeft list-group-item moviesList" *ngFor="let movie of movies">
+  <li id="movies" class="animated slideInLeft list-group-item moviesList" *ngFor="let movie of movies">
     <img src="{{movie.Poster}}" class="col-lg-4 rounded float-left imgMovie" alt="...">
     <div class="col-lg-12 dataMovie">
       <p>Título: {{movie.Title}}</p>
@@ -14,7 +14,7 @@
           <button class="btn btn-secondary dropdown-toggle btn btn-danger btnVer text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="getDetails(movie.Title)">
             Ver más
           </button>
-          <div class="animated bounceInDown dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <div class="animated fadeInDown dropdown-menu" aria-labelledby="dropdownMenuButton">
             <div id="panel" class="detailsContainer col-lg-12" *ngIf="(movie.imdbID) == (this.id)">
               <li class="list-group-item movieDetails">
                 <img src="{{this.portada}}" class="col-lg-4 rounded float-left imgMovie">
