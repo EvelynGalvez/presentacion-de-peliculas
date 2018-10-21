@@ -10,9 +10,10 @@ export class MoviesService {
   movies:any[] = [];
   titles: any[] = [];
   private apiKey: string =  '&apikey=f622a8f2';
+  useHTTPS: true;
 
   getDetailsById(title: string) {
-    const url = 'http://www.omdbapi.com/?t='+ title +this.apiKey;
+    const url = '//www.omdbapi.com/?t='+ title +this.apiKey;
     return this.http.get(url)
     .pipe(map(res => {
       this.titles = res.json();
@@ -24,7 +25,7 @@ export class MoviesService {
   constructor(private http: Http ) { }
 
   getMovieByTitle(title: string) {
-    const url = 'http://www.omdbapi.com/?s='+ title +this.apiKey;
+    const url = '//www.omdbapi.com/?s='+ title +this.apiKey;
     return this.http.get(url)
       .pipe(map(res => {
         this.movies = res.json();

@@ -80,7 +80,6 @@ export class MoviesComponent implements OnInit {
       (data: any) => {
         this.details$ = data;
         let detailsArray = Object.entries(this.details$);
-        console.log(detailsArray);
         this.title = detailsArray[0];
         this.runtime = detailsArray[4];
         this.gendre = detailsArray[5];
