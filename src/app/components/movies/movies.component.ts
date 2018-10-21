@@ -42,13 +42,7 @@ export class MoviesComponent implements OnInit {
   constructor(public moviesService: MoviesService, private router: Router, public route: ActivatedRoute){
   }
 
-  ngOnInit() { 
-    $(document).ready(function(){
-      $("#flip").click(function(){
-        alert("jQuery esta funcionando !!");
-      });
-  });
-  }
+  ngOnInit() {}
 
   
 

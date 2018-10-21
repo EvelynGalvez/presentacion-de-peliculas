@@ -66,3 +66,39 @@
   margin-top: 0.5%;
   position: relative;
 }
+
+@media only screen and (max-width: 600px) {
+  .detailsContainer {
+  border: 1px solid rgb(177, 177, 177);
+  padding-left: 0px;
+  width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-right: 0px;
+  padding-bottom: 230px;
+  margin-top: 1%;
+  position: relative;
+  }
+
+  .dropdown-menu {
+    margin-top: 8%;
+  }
+
+  .detalles {
+    background-color: #FAFAFA;
+    padding-left: 20px;
+    padding-right:20px;
+  }
+
+  .imgMovieMobile {
+    z-index: 10000;
+    position: relative;
+    width: auto;
+    height: 90%;
+  }
+
+  .btnVer {
+    margin-top: -4%;
+    height: 35px;
+  }
+}

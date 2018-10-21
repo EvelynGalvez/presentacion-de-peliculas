@@ -10,7 +10,6 @@ export class MoviesService {
   movies:any[] = [];
   titles: any[] = [];
   private apiKey: string =  '&apikey=f622a8f2';
-  useHTTPS: true;
 
   getDetailsById(title: string) {
     const url = '//www.omdbapi.com/?t='+ title +this.apiKey;
