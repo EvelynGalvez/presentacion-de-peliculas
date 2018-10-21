@@ -57,7 +57,6 @@
 .detailsContainer {
   background-color: #FAFAFA;
   border: 1px solid rgb(177, 177, 177);
-  z-index: 1000;
   padding-left: 0px;
   width: 100%;
   margin-left: 0px;
@@ -65,6 +64,35 @@
   padding-right: 0px;
   margin-top: 0.5%;
   position: relative;
+}
+
+@media (min-width: 600px) {
+  .imgMovieMobile {
+    width: 280px;
+    height: auto;
+    position: relative;
+    z-index: 10000;
+  }
+
+  .detalles {
+    background-color: #FAFAFA;
+    padding-left: 20px;
+    padding-right:20px;
+  }
+
+  .detailsContainer {
+    border: 1px solid rgb(177, 177, 177);
+    padding-left: 0px;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-right: 0px;
+    background-color: #FAFAFA;
+    margin-top: 1%;
+    position: relative;
+    }
+
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -75,7 +103,8 @@
   margin-left: 0px;
   margin-right: 0px;
   padding-right: 0px;
-  padding-bottom: 230px;
+  padding-bottom: 200px;
+  background-color: #FAFAFA;
   margin-top: 1%;
   position: relative;
   }
@@ -93,8 +122,8 @@
   .imgMovieMobile {
     z-index: 10000;
     position: relative;
-    width: auto;
-    height: 90%;
+    width: 80%;
+    height: auto
   }
 
   .btnVer {
